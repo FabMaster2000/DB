@@ -1,0 +1,28 @@
+﻿<Window x:Class="DB_projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_projekt"        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="220">
+
+
+    <Grid>
+        <Label HorizontalAlignment="Left" Height="800" Margin="42,342,0,0" VerticalAlignment="Top" Width="400">
+            <Label x:Name="lbl_Title" Content="Ihre ID:"/>
+        </Label>
+        <Label x:Name="lbl_id" Content="0000000" HorizontalAlignment="Left" Margin="47,364,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="img_orange" Margin="60,60,60,262" Source="orange.jpg" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="img_green" Margin="60,60,60,262" Source="tick.jpg" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="img_red" Margin="60,60,60,262" Source="warning.png" Stretch="Fill" Visibility="Collapsed"/>
+        <ComboBox x:Name="cmb_test" HorizontalAlignment="Left" Margin="47,293,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_test_SelectionChanged">
+            <ComboBoxItem Content="ok"></ComboBoxItem>
+            <ComboBoxItem Content="warning"/>
+            <ComboBoxItem Content="danger"></ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="lbl_ok" Content="Alles roger in Cambodia" HorizontalAlignment="Left" Margin="38,232,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="txt_warning" HorizontalAlignment="Left" Height="76" Margin="10,212,0,0" TextWrapping="Wrap" Text="Einer Ihrer Kontaktpersonen ist evtl. Infiziert. Begeben Sie sich bitte in Quarantäne" VerticalAlignment="Top" Width="200" Visibility="Collapsed"/>
+        <TextBlock x:Name="txt_danger" HorizontalAlignment="Left" Margin="10,237,0,0" TextWrapping="Wrap" Text="Einer Ihrer Kontaktpersonen wurde possitiv getestet. Bitte Lassen Sie sich auch testen." VerticalAlignment="Top" Visibility="Collapsed"/>
+    </Grid>
+</Window>

@@ -48,10 +48,11 @@ namespace DB_projekt
         private void cmb_test_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int test = cmb_test.SelectedIndex;
-
             switch (test)
             {
                 case (0):
+                    img_orange.Visibility = Visibility.Visible;
+
                     img_green.Visibility = Visibility.Visible;
                     img_orange.Visibility = Visibility.Collapsed;
                     img_red.Visibility = Visibility.Collapsed;

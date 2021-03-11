@@ -9,13 +9,13 @@
 
 
     <Grid>
-        <Label HorizontalAlignment="Left" Height="800" Margin="42,342,0,0" VerticalAlignment="Top" Width="400">
+        <Label HorizontalAlignment="Left" Height="40" Margin="42,342,0,0" VerticalAlignment="Top" Width="60">
             <Label x:Name="lbl_Title" Content="Ihre ID:"/>
         </Label>
         <Label x:Name="lbl_id" Content="0000000" HorizontalAlignment="Left" Margin="47,364,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="img_orange" Margin="60,60,60,262" Source="orange.jpg" Stretch="Fill" Visibility="Collapsed"/>
-        <Image x:Name="img_green" Margin="60,60,60,262" Source="tick.jpg" Stretch="Fill" Visibility="Collapsed"/>
-        <Image x:Name="img_red" Margin="60,60,60,262" Source="warning.png" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="img_orange" Margin="60,60,60,262" Source="pictures/orange.jpg" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="img_green" Margin="60,60,60,262" Source="pictures/tick.jpg" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="img_red" Margin="60,60,60,262" Source="pictures/warning.png" Stretch="Fill" Visibility="Collapsed"/>
         <ComboBox x:Name="cmb_test" HorizontalAlignment="Left" Margin="47,293,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_test_SelectionChanged">
             <ComboBoxItem Content="ok"></ComboBoxItem>
             <ComboBoxItem Content="warning"/>

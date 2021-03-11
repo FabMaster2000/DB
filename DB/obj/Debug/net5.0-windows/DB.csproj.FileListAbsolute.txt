@@ -1,4 +1,3 @@
-C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB.csprojAssemblyReference.cache
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB_MarkupCompile.cache
@@ -23,3 +22,4 @@ C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB.dll
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\ref\DB.dll
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB.pdb
 C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB.genruntimeconfig.cache
+C:\Users\Lohmüller\source\repos\DB\DB\obj\Debug\net5.0-windows\DB.csprojAssemblyReference.cache

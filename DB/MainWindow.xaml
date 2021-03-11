@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_projekt"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="220">
+        Title="MainWindow" Height="440" Width="220" ResizeMode="NoResize">
 
 
-    <Grid>
-        <Label HorizontalAlignment="Left" Height="800" Margin="42,342,0,0" VerticalAlignment="Top" Width="400">
+    <Grid Height="430" VerticalAlignment="Top">
+        <Label HorizontalAlignment="Center" Height="35" Margin="0,354,0,0" VerticalAlignment="Top" Width="65">
             <Label x:Name="lbl_Title" Content="Ihre ID:"/>
         </Label>
-        <Label x:Name="lbl_id" Content="0000000" HorizontalAlignment="Left" Margin="47,364,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="img_orange" Margin="60,60,60,262" Source="orange.jpg" Stretch="Fill" Visibility="Collapsed"/>
-        <Image x:Name="img_green" Margin="60,60,60,262" Source="tick.jpg" Stretch="Fill" Visibility="Collapsed"/>
-        <Image x:Name="img_red" Margin="60,60,60,262" Source="warning.png" Stretch="Fill" Visibility="Collapsed"/>
-        <ComboBox x:Name="cmb_test" HorizontalAlignment="Left" Margin="47,293,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_test_SelectionChanged">
-            <ComboBoxItem Content="ok"></ComboBoxItem>
-            <ComboBoxItem Content="warning"/>
-            <ComboBoxItem Content="danger"></ComboBoxItem>
-        </ComboBox>
-        <Label x:Name="lbl_ok" Content="Alles roger in Cambodia" HorizontalAlignment="Left" Margin="38,232,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBox x:Name="txt_warning" HorizontalAlignment="Left" Height="76" Margin="10,212,0,0" TextWrapping="Wrap" Text="Einer Ihrer Kontaktpersonen ist evtl. Infiziert. Begeben Sie sich bitte in Quarantäne" VerticalAlignment="Top" Width="200" Visibility="Collapsed"/>
-        <TextBlock x:Name="txt_danger" HorizontalAlignment="Left" Margin="10,237,0,0" TextWrapping="Wrap" Text="Einer Ihrer Kontaktpersonen wurde possitiv getestet. Bitte Lassen Sie sich auch testen." VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="lbl_id" Text="" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" KeyDown="lbl_id_KeyDown" Width="33"/>
+        <Image x:Name="img_orange" Margin="60,60,0,0" Source="orange.jpg" Stretch="Fill" Visibility="Collapsed" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+        <Image x:Name="img_green" Margin="60,60,0,0" Width="100" Height="100" Source="tick.jpg" Stretch="Uniform" Visibility="Collapsed" ScrollViewer.CanContentScroll="True" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Image x:Name="img_red" Margin="60,60,0,0" Source="warning.png" Stretch="Fill" Visibility="Collapsed" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+        <TextBlock x:Name="lbl_ok" Text="Sie sind in den letzten 14 Tagen keiner nachweislich mit Corona infizierten Person begegnet." HorizontalAlignment="Center" Margin="0,221,0,0" VerticalAlignment="Top" Visibility="Collapsed" Height="58" TextWrapping="WrapWithOverflow"/>
+        <TextBlock x:Name="txt_warning" HorizontalAlignment="Center" Height="130" Margin="0,212,0,0" TextWrapping="Wrap" Text="Bei mindestens einem der Kontakte, die Sie in den letzten 14 Tagen hatten, steht das Ergebnis eines Coronatests aus oder er/sie hatte Kontakt zu einer infizierten Person.
+Sollten Sie Erkältungssymptome haben, vereinbaren Sie bitte einen Termin für einen Coronatest." VerticalAlignment="Top" Width="200" Visibility="Collapsed"/>
+        <TextBlock x:Name="txt_danger" HorizontalAlignment="Left" Margin="10,220,0,0" TextWrapping="Wrap" Text="Einer Ihrer Kontakte wurde in den letzten 14 Tagen positiv auf Corona getestet.
+Bitte vereinbaren Sie selbst einen Testtermin und begeben sie sich in Quarantäne.
+Beachten Sie bitte die Anweisungen Ihres zuständigen Gesundheitsamts" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="txt_infected" HorizontalAlignment="Left" Margin="10,220,0,0" TextWrapping="Wrap" Text="Sie wurden in den letzten 14 Tage positiv auf Corona getestet. Bitte begeben Sie sich in Quarantäne und sprechen Sie alles weitere mit ihrem zuständigen Gesundheitsamt ab." VerticalAlignment="Top" Visibility="Collapsed"/>
+
     </Grid>
 </Window>

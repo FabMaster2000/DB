@@ -7,7 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="1920px-BMG_Logo.svg.png" />
+    <None Remove="orange.jpg" />
+    <None Remove="tick.jpg" />
+    <None Remove="warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.OleDb" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="1920px-BMG_Logo.svg.png" />
+    <Resource Include="orange.jpg" />
+    <Resource Include="tick.jpg" />
+    <Resource Include="warning.png" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Data.OleDb;
+using DB;
 
 namespace DB_projekt
 {
@@ -17,6 +18,8 @@ namespace DB_projekt
         public MainWindow()
         {
             InitializeComponent();
+            DocSite ds = new DocSite();
+            ds.Show();
         }     
 
         private void lbl_id_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

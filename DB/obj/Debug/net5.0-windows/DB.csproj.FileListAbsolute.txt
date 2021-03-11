@@ -48,3 +48,5 @@ C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\
 C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\ref\DB.dll
 C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\DB.pdb
 C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\DB.genruntimeconfig.cache
+C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\DocSite.g.cs
+C:\Users\georg\OneDrive\Dokumente\GitHub\DB Project\DB\obj\Debug\net5.0-windows\DocSite.baml

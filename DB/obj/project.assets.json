@@ -643,19 +643,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lohmüller\\.nuget\\packages\\": {}
+    "C:\\Users\\georg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lohmüller\\source\\repos\\DB\\DB\\DB.csproj",
+      "projectUniqueName": "C:\\Users\\georg\\OneDrive\\Dokumente\\GitHub\\DB Project\\DB\\DB.csproj",
       "projectName": "DB",
-      "projectPath": "C:\\Users\\Lohmüller\\source\\repos\\DB\\DB\\DB.csproj",
-      "packagesPath": "C:\\Users\\Lohmüller\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lohmüller\\source\\repos\\DB\\DB\\obj\\",
+      "projectPath": "C:\\Users\\georg\\OneDrive\\Dokumente\\GitHub\\DB Project\\DB\\DB.csproj",
+      "packagesPath": "C:\\Users\\georg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\georg\\OneDrive\\Dokumente\\GitHub\\DB Project\\DB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lohmüller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\georg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -704,7 +704,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

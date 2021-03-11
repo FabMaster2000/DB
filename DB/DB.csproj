@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="1920px-BMG_Logo.svg.png" />
     <None Remove="orange.jpg" />
+    <None Remove="PITS.png" />
     <None Remove="tick.jpg" />
     <None Remove="warning.png" />
   </ItemGroup>
@@ -20,6 +21,7 @@
   <ItemGroup>
     <Resource Include="1920px-BMG_Logo.svg.png" />
     <Resource Include="orange.jpg" />
+    <Resource Include="PITS.png" />
     <Resource Include="tick.jpg" />
     <Resource Include="warning.png" />
   </ItemGroup>

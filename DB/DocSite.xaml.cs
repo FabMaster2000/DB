@@ -42,7 +42,7 @@ namespace DB
 
         private void btn_send_Click(object sender, RoutedEventArgs e)
         {
-            // txtb_id_KeyDown (enter)
+            id = Int32.Parse(txtb_id.Text);
             //Edit the path to your Location - Add Datalink in VS
             String path = Environment.CurrentDirectory;
             path = path + "\\datenbanken\\coronaRadar.accdb";
@@ -53,10 +53,11 @@ namespace DB
             {
                 conn.Open();
 
-                //Test
-                OleDbCommand command = new OleDbCommand("UPDATE state=3 SET  WHERE ID=" + id + "; ", conn);
-                OleDbDataAdapter update = new OleDbDataAdapter();
-               
+                 //Test
+                 OleDbCommand command = new OleDbCommand("UPDATE state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + " ' WHERE ID=" + id + "; ", conn);
+                 command.ExecuteNonQuery();
+
+
             }
             catch (Exception)
             {

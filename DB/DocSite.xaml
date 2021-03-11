@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB"
         mc:Ignorable="d"
-        Title="DocSite" Height="450" Width="800">
+        Title="CoronaRadar" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Image x:Name="img_BfG" Margin="0,0,0,0" Height="200" Width="400" Stretch="Fill" Source="pack://siteoforigin:,,,/1920px-BMG_Logo.svg.png" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox x:Name="txtb_id" HorizontalAlignment="Left" Margin="77,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="txtb_id_KeyDown"/>
-        <Label x:Name="lbl_info" Content="Tragen Sie bitte die ID des Patienten ein:" HorizontalAlignment="Left" Margin="77,343,0,0" VerticalAlignment="Top" Width="275"/>
-        <Button x:Name="btn_send" Content="Als Infiziert melden" HorizontalAlignment="Left" Height="50" Margin="604,339,0,0" VerticalAlignment="Top" Width="150" Opacity="0.8" Background="#CCF60E0E" Click="btn_send_Click"/>
+        <Image x:Name="img_BfG" Height="200" Width="399" Stretch="Fill" Source="/1920px-BMG_Logo.svg.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="217,242,0,0"/>
+        <TextBox x:Name="txtb_id" HorizontalAlignment="Center" Margin="0,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="txtb_id_KeyDown"/>
+        <Label x:Name="lbl_info" Content="Tragen Sie bitte die ID des Patienten ein:" HorizontalAlignment="Left" Margin="294,164,0,0" VerticalAlignment="Top" Width="276"/>
+        <Button x:Name="btn_send" Content="Als Infiziert melden" HorizontalAlignment="Center" Height="39" Margin="0,218,0,0" VerticalAlignment="Top" Width="120" Opacity="0.8" Background="#CCF60E0E" Click="btn_send_Click"/>
+        <Image Margin="641,11,10,367" Stretch="Fill" Source="/PITS.png"/>
     </Grid>
 </Window>

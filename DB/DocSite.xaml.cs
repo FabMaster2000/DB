@@ -12,6 +12,8 @@ namespace DB
 
         int id;
         int[] contacts;
+        String ids;
+        int i = 0;
 
 
         public DocSite()
@@ -48,9 +50,30 @@ namespace DB
                 OleDbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    state = String.Format("{0}, ", reader[0]);
-                    state = state.Substring(0, state.Length - 2);
+                    ids = String.Format("{0}, ", reader[0]);
+                    ids = ids.Substring(0, ids.Length - 2);
                 }
+                contacts[i] = Int32.Parse(ids);
+                i++;
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+            }
+
+            // inform other second grade Users
+            try
+            {
+                conn.Open();
+                foreach (int user in contacts)
+                {
+                    OleDbCommand command = new OleDbCommand("UPDATE state SET state=1 WHERE UserID=" +
+                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + user + " OR UserID2=" + user + "); ", conn);
+                command.ExecuteNonQuery();        
+                }
+                conn.Close();
+                
             }
             catch (Exception)
             {
@@ -67,8 +90,6 @@ namespace DB
                 OleDbCommand command = new OleDbCommand("UPDATE state SET state=2 WHERE UserID=" +
                     "(SELECT UserID1, UserID2 from events WHERE UserID1=" + id + " OR UserID2=" + id + "); ", conn);
                 command.ExecuteNonQuery();
-                MessageBox.Show("Patient wurde als infiziert gemeldet.");
-
                 conn.Close();
             }
             catch (Exception)
@@ -93,23 +114,7 @@ namespace DB
                 MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
             }
 
-            // inform other second grade Users
-            try
-            {
-                conn.Open();
-
-                //Test
-                OleDbCommand command = new OleDbCommand("UPDATE state SET state=1 WHERE UserID=" +
-                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + id + " OR UserID2=" + id + "); ", conn);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Patient wurde als infiziert gemeldet.");
-                conn.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
-            }
-
+            
         }
     }
 }

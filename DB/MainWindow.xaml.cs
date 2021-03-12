@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Data.OleDb;
 using DB;
 
@@ -39,8 +38,7 @@ namespace DB_projekt
                 {
                     conn.Open();
 
-                    //Test
-                    OleDbCommand command = new OleDbCommand("SELECT state FROM state WHERE UserID=" + id + "; ", conn);
+                    OleDbCommand command = new OleDbCommand("SELECT MAX(state) FROM state WHERE UserID=" + id + "; ", conn);
                     OleDbDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -50,10 +48,27 @@ namespace DB_projekt
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+                    try
+                    {
+                        conn.Open();
+
+                        OleDbCommand command = new OleDbCommand("Select MAX(state)-1 FROM state WHERE  UserID in " +
+                                                            "(SELECT UserID2 FROM events WHERE UserID1 = " + id + ")" +
+                                                            "Or UserID in (Select UserID1 From events Where UserID2 = " + id + ")", conn);
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            state = String.Format("{0}, ", reader[0]);
+                            state = state.Substring(0, state.Length - 2);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        state = "0";
+                    }
                 }
 
-                int test = Int32.Parse(state);
+                    int test = Int32.Parse(state);
 
                 switch (test)
                 {

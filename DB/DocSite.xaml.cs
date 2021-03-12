@@ -2,6 +2,10 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Data.OleDb;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace DB
 {
     /// <summary>
@@ -11,9 +15,8 @@ namespace DB
     {
 
         int id;
-        int[] contacts;
+        List<int> contacts = new List<int>();
         String ids;
-        int i = 0;
 
 
         public DocSite()
@@ -45,17 +48,22 @@ namespace DB
             {
                 conn.Open();
 
-                //Test
                 OleDbCommand command = new OleDbCommand("SELECT UserID1, UserID2 from events WHERE UserID1 = " + id + " OR UserID2 = " + id + "; ", conn);
                 OleDbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     ids = String.Format("{0}, ", reader[0]);
                     ids = ids.Substring(0, ids.Length - 2);
+                    if (Int32.Parse(ids) != id) contacts.Add(Int32.Parse(ids));
+
+                    ids = String.Format("{0}, ", reader[1]);
+                    ids = ids.Substring(0, ids.Length - 2);
+                    if (Int32.Parse(ids) != id) contacts.Add(Int32.Parse(ids));
                 }
-                contacts[i] = Int32.Parse(ids);
-                i++;
                 conn.Close();
+                // delete all doubles
+                List<int> distinct = contacts.Distinct().ToList();
+                contacts = distinct;
             }
             catch (Exception)
             {
@@ -66,11 +74,14 @@ namespace DB
             try
             {
                 conn.Open();
-                foreach (int user in contacts)
+                foreach (int user in contacts) 
                 {
-                    OleDbCommand command = new OleDbCommand("UPDATE state SET state=1 WHERE UserID=" +
-                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + user + " OR UserID2=" + user + "); ", conn);
-                command.ExecuteNonQuery();        
+
+                        OleDbCommand command = new OleDbCommand("INSERT state set state=1 WHERE  UserID in " +
+                                                            "(SELECT UserID2 FROM events WHERE UserID1 = " + user + ")" +
+                                                            "Or UserID in (Select UserID1 From events Where UserID2 = " + user + ")", conn);
+                        command.ExecuteNonQuery();
+                  
                 }
                 conn.Close();
                 
@@ -86,9 +97,9 @@ namespace DB
             {
                 conn.Open();
 
-                //Test
-                OleDbCommand command = new OleDbCommand("UPDATE state SET state=2 WHERE UserID=" +
-                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + id + " OR UserID2=" + id + "); ", conn);
+                OleDbCommand command = new OleDbCommand("INSERT state SET state=2 WHERE  UserID IN " +
+                                                            "(SELECT UserID2 FROM events WHERE UserID1 = " + id + ")" +
+                                                            "OR UserID IN (Select UserID1 FROM events WHERE UserID2 = " + id + ")", conn);
                 command.ExecuteNonQuery();
                 conn.Close();
             }
@@ -102,8 +113,7 @@ namespace DB
             {
                 conn.Open();
 
-                //Test
-                OleDbCommand command = new OleDbCommand("UPDATE state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + 
+                OleDbCommand command = new OleDbCommand("INSERT state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + 
                     " ' WHERE UserID=" + id + "; ", conn);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Patient wurde als infiziert gemeldet.");
@@ -112,9 +122,7 @@ namespace DB
             catch (Exception)
             {
                 MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
-            }
-
-            
+            }            
         }
     }
 }

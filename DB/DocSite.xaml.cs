@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Data.OleDb;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace DB
 {
     /// <summary>
@@ -21,8 +10,8 @@ namespace DB
     public partial class DocSite : Window
     {
 
-        String state;
         int id;
+        int[] contacts;
 
 
         public DocSite()
@@ -49,16 +38,72 @@ namespace DB
             String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Persist Security Info=True";
             OleDbConnection conn = new OleDbConnection(connectionString);
 
+            // get all contacts from infected user
             try
             {
                 conn.Open();
 
-                 //Test
-                 OleDbCommand command = new OleDbCommand("UPDATE state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + " ' WHERE ID=" + id + "; ", conn);
-                 command.ExecuteNonQuery();
+                //Test
+                OleDbCommand command = new OleDbCommand("SELECT UserID1, UserID2 from events WHERE UserID1 = " + id + " OR UserID2 = " + id + "; ", conn);
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    state = String.Format("{0}, ", reader[0]);
+                    state = state.Substring(0, state.Length - 2);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+            }
+
+
+            // inform other imidiate Users
+            try
+            {
+                conn.Open();
+
+                //Test
+                OleDbCommand command = new OleDbCommand("UPDATE state SET state=2 WHERE UserID=" +
+                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + id + " OR UserID2=" + id + "); ", conn);
+                command.ExecuteNonQuery();
                 MessageBox.Show("Patient wurde als infiziert gemeldet.");
 
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+            }
 
+            // set as infected
+            try
+            {
+                conn.Open();
+
+                //Test
+                OleDbCommand command = new OleDbCommand("UPDATE state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + 
+                    " ' WHERE UserID=" + id + "; ", conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Patient wurde als infiziert gemeldet.");
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+            }
+
+            // inform other second grade Users
+            try
+            {
+                conn.Open();
+
+                //Test
+                OleDbCommand command = new OleDbCommand("UPDATE state SET state=1 WHERE UserID=" +
+                    "(SELECT UserID1, UserID2 from events WHERE UserID1=" + id + " OR UserID2=" + id + "); ", conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Patient wurde als infiziert gemeldet.");
+                conn.Close();
             }
             catch (Exception)
             {

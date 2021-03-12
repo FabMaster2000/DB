@@ -40,7 +40,7 @@ namespace DB_projekt
                     conn.Open();
 
                     //Test
-                    OleDbCommand command = new OleDbCommand("SELECT state FROM state WHERE ID=" + id + "; ", conn);
+                    OleDbCommand command = new OleDbCommand("SELECT state FROM state WHERE UserID=" + id + "; ", conn);
                     OleDbDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {

@@ -50,7 +50,7 @@ namespace DB_projekt
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Failed to connect to data source");
+                    MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
                 }
 
                 int test = Int32.Parse(state);

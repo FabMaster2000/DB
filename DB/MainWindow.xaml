@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_projekt"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="440" Width="220" ResizeMode="NoResize">
+        Title="Corona Radar" Height="440" Width="220" ResizeMode="NoResize">
 
 
     <Grid Height="430" VerticalAlignment="Top">
@@ -23,6 +23,7 @@ Sollten Sie Erkältungssymptome haben, vereinbaren Sie bitte einen Termin für e
 Bitte vereinbaren Sie selbst einen Testtermin und begeben sie sich in Quarantäne.
 Beachten Sie bitte die Anweisungen Ihres zuständigen Gesundheitsamts" VerticalAlignment="Top" Visibility="Collapsed"/>
         <TextBlock x:Name="txt_infected" HorizontalAlignment="Left" Margin="10,220,0,0" TextWrapping="Wrap" Text="Sie wurden in den letzten 14 Tage positiv auf Corona getestet. Bitte begeben Sie sich in Quarantäne und sprechen Sie alles weitere mit ihrem zuständigen Gesundheitsamt ab." VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Label x:Name="lbl_header" Content="Corona Radar" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Window>

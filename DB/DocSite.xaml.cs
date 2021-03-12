@@ -56,12 +56,13 @@ namespace DB
                  //Test
                  OleDbCommand command = new OleDbCommand("UPDATE state SET state=3, testDate='" + DateTime.Now.ToString("dd-MM-yyyy") + " ' WHERE ID=" + id + "; ", conn);
                  command.ExecuteNonQuery();
+                MessageBox.Show("Patient wurde als infiziert gemeldet.");
 
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Failed to connect to data source");
+                MessageBox.Show("Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.");
             }
 
         }

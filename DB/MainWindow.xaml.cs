@@ -31,7 +31,7 @@ namespace DB_projekt
 
                 //Edit the path to your Location - Add Datalink in VS
                 String path = Environment.CurrentDirectory;
-                path = path + "\\datsenbanken\\coronaRadar.accdb";
+                path = path + "\\datenbanken\\coronaRadar.accdb";
                 String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Persist Security Info=True";
                 OleDbConnection conn = new OleDbConnection(connectionString);
 
